@@ -3,12 +3,13 @@
 <head>
 <script>
 (function(){
-  var d = document, e = d.documentElement, s = d.createElement('style');
+    var d = document, e = d.documentElement, s = d.createElement('style');
     s.textContent = 'body{visibility:hidden}';
     var r = document.getElementsByTagName('script')[0];
     r.parentNode.insertBefore(s, r);
     function f(){ s.parentNode && s.parentNode.removeChild(s); }
-    addEventListener('load',f,false);
+    if(addEventListener) { addEventListener('load',f,false); }
+    else if(attachEvent) { attachEvent('load',f);   }
     setTimeout(f,3000);
     })();
 </script>
